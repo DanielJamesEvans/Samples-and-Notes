@@ -31,15 +31,10 @@ cv2.imshow("Adaptive Threshold Image", img_thresh_adapt)
 
 # OPENING (EROSION THEN DILATION) TO REMOVE SPOTS
 kernel = np.ones((3, 3), np.uint8)
-
-#abc = cv2.morphologyEx(img_thresh_adapt, cv2.MORPH_CLOSE, kernel)
-#img_open = cv2.morphologyEx(abc, cv2.MORPH_OPEN, kernel)
 img_open = cv2.morphologyEx(img_thresh_adapt, cv2.MORPH_OPEN, kernel)
 cv2.imshow("Opening Image", img_open)
-#kernel2 = np.ones((5, 5), np.uint8)
-#img_open_2 = cv2.morphologyEx(img_open, cv2.MORPH_OPEN, kernel2)
-#cv2.imshow("2x Opening Image", img_open_2)
 
+# FIND THE CONTOURS.
 # The second argument deals with contour hierarchies.  This only matters if contour hierarchies are necessary.
 # The third argument allows the user to save memory by not storing all of the contour's points.
 # It appears that img_cont_return is probably the same as the input image.
